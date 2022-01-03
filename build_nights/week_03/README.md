@@ -7,9 +7,9 @@
 ## homework
 
 - Read or skim over the following papers.
-	- [Fast, Lean, and Accurate: Modeling Password Guessability Using Neural Networks](https://www.andrew.cmu.edu/user/nicolasc/publications/M+-USENIXSec16.pdf)
-	- [Targeted Online Password Guessing: An Underestimated Threat](https://dl.acm.org/doi/abs/10.1145/2976749.2978339)
-	- [PassGAN: A Deep Learning Approach for Password Guessing](https://arxiv.org/pdf/1709.00440.pdf)
-	- [Recurrent GANs Password Cracker For IoT Password Security Enhancement](https://www.mdpi.com/1424-8220/20/11/3106)
-	- [Generating Optimized Guessing Candidates toward Better Password Cracking from Multi-Dictionaries Using Relativistic GAN](https://www.mdpi.com/2076-3417/10/20/7306)
+	- [Fast, Lean, and Accurate: Modeling Password Guessability Using Neural Networks](../../resources/Fast_Lean_and.pdf)
+	- [Targeted Online Password Guessing: An Underestimated Threat](../../resources/Targeted_Online_Password.pdf)
+	- [PassGAN: A Deep Learning Approach for Password Guessing](../../resources/PassGAN_A_Deep.pdf)
+	- [Recurrent GANs Password Cracker For IoT Password Security Enhancement](../../resources/Recurrent_GANs_Password.pdf)
+	- [Generating Optimized Guessing Candidates toward Better Password Cracking from Multi-Dictionaries Using Relativistic GAN](../../resources/Generating_Optimized_Guessing.pdf)
 - Mess with your TensorFlow model – try out different architectures or parameters.
