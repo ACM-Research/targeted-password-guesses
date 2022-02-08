@@ -3,12 +3,12 @@
 ## agenda
 
 - introductions
-- administrivia
-	- Slack
-	- GitHub
 - how ACM Research works
 - our problem
 - introduction to machine learning
+- administrivia
+	- Slack
+	- GitHub
 
 ## homework
 
