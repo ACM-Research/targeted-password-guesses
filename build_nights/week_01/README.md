@@ -9,8 +9,14 @@
 - administrivia
 	- Slack
 	- GitHub
+- introduction to GPT-3
 
 ## homework
 
-- Go through [Python/Numpy tutorial](https://colab.research.google.com/github/cs231n/cs231n.github.io/blob/master/python-colab.ipynb).
-- 
+- Skim through past research
+	1. [Fast, Lean, and Accurate: Modeling Password Guessability Using Neural Networks](https://github.com/ACM-Research/targeted-password-guesses/blob/main/resources/password_guessability.pdf)
+	2. [Targeted Online Password Guessing: An Underestimated Threat](https://github.com/ACM-Research/targeted-password-guesses/blob/main/resources/targeted_password_guessing.pdf)
+	3. [PassGAN: A Deep Learning Approach for Password Guessing](https://github.com/ACM-Research/targeted-password-guesses/blob/main/resources/PassGAN.pdf)
+- Go through GPT-3 docs
+	1. [Each section under "GET STARTED"](https://beta.openai.com/docs/introduction)
+	2. ["Fine-tuning" section](https://beta.openai.com/docs/guides/fine-tuning)
