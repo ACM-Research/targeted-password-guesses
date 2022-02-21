@@ -4,7 +4,7 @@
 
 This is a project for ACM Research at UTD. During the 2022 spring semester, four participants are building on previous research by refining a GPT-3 model using data from password leaks in order to further investigate the use of machine learning in targeted password guessing attacks.
 
-## links
+## links for participants
 
 - [resources](https://docs.google.com/spreadsheets/d/1ZHTnGY7sAK_dt9gkmfszioV2o38MQP8KalAuwCbvQc4/edit#gid=0) – my spreadsheet with past resources and potential datasets
 - [Slack](https://acm-research-s22.slack.com)
