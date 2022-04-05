@@ -104,5 +104,6 @@ passwords = [
 ]
 
 
-def guess():
+def guess(name, info):
+    print(name, info)
     return random.sample(passwords, 30)

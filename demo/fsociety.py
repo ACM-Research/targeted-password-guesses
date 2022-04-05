@@ -12,7 +12,7 @@ def index():
 
 @app.route("/guess", methods=["POST"])
 def guess():
-    return json.dumps(passwords.guess())
+    return json.dumps(passwords.guess(request.form.get("name"), request.form.get("info")))
 
 
 @app.route("/styles/<path:path>")

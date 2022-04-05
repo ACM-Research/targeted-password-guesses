@@ -10,7 +10,13 @@ $("#guess").on("click", e => {
     e.preventDefault();
 
     // Get password guesses
-    fetch("/guess", {method: "POST"})
+    let data = new FormData();
+    data.append("name", $("#name").val());
+    data.append("info", $("#info").val());
+    fetch("/guess", {
+	    method: "POST",
+	    body: data,
+    	})
         .then(response => response.json())
         .then(guesses => {
             let $results_ul = $("#results ul").empty();
