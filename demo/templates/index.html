@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>fsociety</title>
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+<body {% if theme != "system" %}class="{{ theme }}"{% endif %}>
+    <header>
+        <h1>fsociety</h1>
+        <p>Targeted password guesses with machine learning - Demo</p>
+        <div aria-label="theme selector">
+            <button id="dark" title="dark theme" aria-label="dark theme" class="exception {% if theme == "dark" %}active{% endif %}">
+            <span class="material-icons">dark_mode</span>
+            </button>
+            <button id="light" title="light theme" aria-label="light theme" class="exception {% if theme == "light" %}active{% endif %}">
+            <span class="material-icons">light_mode</span>
+            </button>
+            <button id="system" title="system theme" aria-label="system theme" class="exception {% if theme == "system" %}active{% endif %}">
+            <span class="material-icons">settings_brightness</span>
+            </button>
+        </div>
+    </header>
+    <main>
+        <form>
+            <div class="form-input">
+                <label for="name">Target's Name:</label>
+                <input id="name" type="text" value="Jane Doe">
+            </div>
+            <div class="form-input grow">
+                <label for="info">Info:</label>
+                <textarea id="info">Age 25, lives in a single apartment in New Hampshire. Works as an accountant in Goldman Sachs. Loves anime, favorites are evangelion and higurashi. Parties a lot. Best friends are Katie and Lara. Hangs out with them basically every night, and sometimes they watch anime together. Huge cat person; owns like 12 cats. The oldest, Jane, has been with her for over 6 years now.
+                </textarea>
+            </div>
+            <div class="buttons">
+                <button id="reset" type="reset">Reset</button>
+                <button id="guess" type="submit">Guess Password</button>
+            </div>
+        </form>
+        <section id="results">
+            <h2>Guessed Passwords</h2>
+            <ul></ul>
+        </section>
+    </main>
+    <footer>
+        © 2022 | fsociety
+    </footer>
+    <script src="/scripts/cash.min.js"></script>
+    <script src="/scripts/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,268 @@
+// Themes
+
+@mixin theme($dark) {
+    @if $dark {
+        --background: #212128;
+        --background-dark: #18181c;
+        --foreground: white;
+        --accent: #c8e0f4;
+        --shadow: rgba(15, 15, 15, .5);
+    } @else {
+        --background: #F4FFF8;
+        --background-dark: #E1EFFF;
+        --foreground: black;
+        --accent: #a9d2f3;
+        --shadow: rgba(15, 15, 15, .25);
+    }
+}
+
+// System dark theme
+@media (prefers-color-scheme: dark) {
+    :root {
+        @include theme($dark: true);
+    }
+}
+
+// System light theme
+@media (prefers-color-scheme: light) {
+    :root {
+        @include theme($dark: false);
+    }
+}
+
+// Forced dark theme
+.dark {
+    @include theme($dark: true);
+}
+
+// Forced light theme
+.light {
+    @include theme($dark: false);
+}
+
+
+// Material Icons
+
+@font-face {
+    font-family: "Material Icons";
+    font-style: normal;
+    font-weight: 400;
+    src: url(/fonts/MaterialIcons-Round.woff2) format('woff2');
+}
+
+.material-icons {
+    font-family: "Material Icons";
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -moz-font-feature-settings: "liga";
+    -moz-osx-font-smoothing: grayscale;
+}
+
+// Actual styles
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: sans-serif;
+    text-align: center;
+    margin: 0;
+}
+
+header {
+    padding: 0 2rem 1rem 2rem;
+
+    button {
+        appearance: none;
+        background-color: var(--background);
+        border: none;
+        border-radius: 50%;
+        color: var(--foreground);
+        display: flex;
+        justify-content: center;
+        place-items: center;
+        width: 40px;
+        height: 40px;
+        margin: 0 5px;
+    }
+
+    button:hover {
+        background-color: var(--foreground);
+        color: var(--background);
+    }
+
+    div {
+        background-color: var(--background);
+        border-radius: 5px;
+        cursor: default;
+        display: flex;
+        align-items: center;
+        align-content: center;
+        padding: .25rem;
+        position: absolute;
+        right: 1em;
+        top: 1em;
+
+        button:not(.active) {
+            display: none;
+        }
+    }
+
+    div.open {
+        box-shadow: 0 0 4px 2px var(--shadow);
+
+        button {
+            display: flex;
+        }
+    }
+}
+
+main {
+    display: flex;
+    height: calc(90vh);
+}
+
+form, section {
+    background-color: var(--background-dark);
+    border-radius: 10px;
+    box-shadow: 0 0 4px 2px var(--shadow);
+    margin: 5vh auto;
+    padding: 1rem;
+    width: 40vw;
+}
+
+ul {
+    font-size: 1.1rem;
+    overflow-y: auto;
+    height: calc(100% - 5rem);
+    padding: 0;
+
+    li {
+        border-bottom: 1px solid var(--background);
+        list-style-type: none;
+        padding: 0.5em 0.25em;
+        margin: 0 2em;
+    }
+}
+
+#results {
+    display: none;
+}
+
+footer {
+    background-color: var(--background-dark);
+    padding: 1rem;
+}
+
+@media screen and (max-width: 1200px) {
+    main {
+        flex-direction: column;
+        height: auto;
+    }
+
+    form, section {
+        height: 80vh;
+        width: 75vw;
+    }
+}
+
+// Animation
+
+@media screen and (min-width: 1201px) {
+    .slide {
+        animation-duration: 1s;
+        animation-name: slide;
+        position: relative;
+    }
+
+    @keyframes slide {
+        from {
+            right: -25vw;
+        }
+
+        to {
+            right: 0;
+        }
+    }
+}
+
+#results {
+    animation-name: fade-in;
+    animation-duration: 1s;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+// Form elements
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-input {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.25em;
+    margin: 1em;
+    padding: 1em;
+}
+
+.grow {
+    flex-grow: 1;
+
+    textarea {
+        flex-grow: 1;
+    }
+}
+
+input, textarea {
+    background-color: var(--background-dark);
+    border: 2px solid var(--foreground);
+    border-radius: 10px;
+    color: var(--foreground);
+    font-size: 1rem;
+    font-family: sans-serif;
+    margin-top: 0.5em;
+    padding: 0.5em 0.75em;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2em 1em 2em;
+}
+
+button {
+    appearance: none;
+    background-color: var(--accent);
+    color: black;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    margin: 0 1em;
+    padding: .5em 1.5em;
+}
+
+button:hover {
+    box-shadow: 0 0 4px 2px var(--shadow);
+}
