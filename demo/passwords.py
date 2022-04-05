@@ -1,6 +1,10 @@
 import random
+import torch
+import json
+import re
+from transformers import GPT2LMHeadModel, GPT2Tokenizer
 
-passwords = [
+fake_passwords = [
     "123456",
     "password",
     "12345",
@@ -103,7 +107,28 @@ passwords = [
     "nicholas",
 ]
 
+tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
+model = GPT2LMHeadModel.from_pretrained('gpt2')
+password_list_length = 5
+
+def fake_guess():
+    return random.sample(fake_passwords, 30)
 
 def guess(name, info):
-    print(name, info)
-    return random.sample(passwords, 30)
+    password_list = []
+    for i in range(password_list_length):
+        sequence = (f"Name: {name}\nInfo: {info}\nPassword:")
+        inputs = tokenizer.encode(sequence, return_tensors='pt')
+        outputs = model.generate(
+            inputs, max_length=len(sequence)+20, do_sample=True, temperature=0.5
+        )
+        output = tokenizer.decode(outputs[0], skip_special_tokens=True)
+        match = re.search(r"Password:(.*)", output)
+        if match:
+            password = match.group(1)
+            print(password)
+            password_list.append(password)
+        else:
+            print(f"### Could not find {i}-th password result for output:\n{output}\n\n")
+
+    return password_list
