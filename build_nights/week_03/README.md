@@ -23,4 +23,5 @@
 - Meet with your teammates at least one time outside of this build night before next week.
 	- Start advancing the project outside my supervision.
 	- But i'll still be interested in what you all find!
+	- I recommend using [Jitsi](https://meet.jit.si/).
 - Waiting to hear back from academic advisor.
