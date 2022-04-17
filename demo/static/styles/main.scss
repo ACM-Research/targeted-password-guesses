@@ -68,6 +68,28 @@
 
 // Actual styles
 
+// Scrollbar style
+/* Works on Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0) rgb(50, 50, 50);
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgb(50, 50, 50);
+  border-radius: 20px;
+  border: 6px solid rgba(0, 0, 0, 0);
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -137,7 +159,7 @@ form, section {
     background-color: var(--background-dark);
     border-radius: 10px;
     box-shadow: 0 0 4px 2px var(--shadow);
-    margin: 5vh auto;
+    margin: 1vh auto;
     padding: 1rem;
     width: 40vw;
 }
@@ -172,7 +194,7 @@ footer {
     }
 
     form, section {
-        height: 80vh;
+        height: auto;
         width: 75vw;
     }
 }
@@ -217,14 +239,22 @@ footer {
 form {
     display: flex;
     flex-direction: column;
+
+    label {
+        text-align: left;
+    }
+
+    textarea {
+        resize: none;
+    }
 }
 
 .form-input {
     display: flex;
     flex-direction: column;
     font-size: 1.25em;
-    margin: 1em;
-    padding: 1em;
+    margin: 0 1em;
+    padding: 0.5em 1em;
 }
 
 .grow {
@@ -245,6 +275,7 @@ input, textarea {
     margin-top: 0.5em;
     padding: 0.5em 0.75em;
 }
+
 
 .buttons {
     display: flex;

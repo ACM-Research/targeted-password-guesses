@@ -1,1 +1,341 @@
-@media(prefers-color-scheme: dark){:root{--background: #212128;--background-dark: #18181c;--foreground: white;--accent: #c8e0f4;--shadow: rgba(15, 15, 15, .5)}}@media(prefers-color-scheme: light){:root{--background: #F4FFF8;--background-dark: #E1EFFF;--foreground: black;--accent: #a9d2f3;--shadow: rgba(15, 15, 15, .25)}}.dark{--background: #212128;--background-dark: #18181c;--foreground: white;--accent: #c8e0f4;--shadow: rgba(15, 15, 15, .5)}.light{--background: #F4FFF8;--background-dark: #E1EFFF;--foreground: black;--accent: #a9d2f3;--shadow: rgba(15, 15, 15, .25)}@font-face{font-family:"Material Icons";font-style:normal;font-weight:400;src:url(/fonts/MaterialIcons-Round.woff2) format("woff2")}.material-icons{font-family:"Material Icons";font-weight:normal;font-style:normal;font-size:24px;line-height:1;letter-spacing:normal;text-transform:none;display:inline-block;white-space:nowrap;word-wrap:normal;direction:ltr;-moz-font-feature-settings:"liga";-moz-osx-font-smoothing:grayscale}html{scroll-behavior:smooth}body{background-color:var(--background);color:var(--foreground);font-family:sans-serif;text-align:center;margin:0}header{padding:0 2rem 1rem 2rem}header button{appearance:none;background-color:var(--background);border:none;border-radius:50%;color:var(--foreground);display:flex;justify-content:center;place-items:center;width:40px;height:40px;margin:0 5px}header button:hover{background-color:var(--foreground);color:var(--background)}header div{background-color:var(--background);border-radius:5px;cursor:default;display:flex;align-items:center;align-content:center;padding:.25rem;position:absolute;right:1em;top:1em}header div button:not(.active){display:none}header div.open{box-shadow:0 0 4px 2px var(--shadow)}header div.open button{display:flex}main{display:flex;height:90vh}form,section{background-color:var(--background-dark);border-radius:10px;box-shadow:0 0 4px 2px var(--shadow);margin:5vh auto;padding:1rem;width:40vw}ul{font-size:1.1rem;overflow-y:auto;height:calc(100% - 5rem);padding:0}ul li{border-bottom:1px solid var(--background);list-style-type:none;padding:.5em .25em;margin:0 2em}#results{display:none}footer{background-color:var(--background-dark);padding:1rem}@media screen and (max-width: 1200px){main{flex-direction:column;height:auto}form,section{height:80vh;width:75vw}}@media screen and (min-width: 1201px){.slide{animation-duration:1s;animation-name:slide;position:relative}@keyframes slide{from{right:-25vw}to{right:0}}}#results{animation-name:fade-in;animation-duration:1s}@keyframes fade-in{from{opacity:0}to{opacity:1}}form{display:flex;flex-direction:column}.form-input{display:flex;flex-direction:column;font-size:1.25em;margin:1em;padding:1em}.grow{flex-grow:1}.grow textarea{flex-grow:1}input,textarea{background-color:var(--background-dark);border:2px solid var(--foreground);border-radius:10px;color:var(--foreground);font-size:1rem;font-family:sans-serif;margin-top:.5em;padding:.5em .75em}.buttons{display:flex;justify-content:space-between;padding:0 2em 1em 2em}button{appearance:none;background-color:var(--accent);color:#000;cursor:pointer;border:none;border-radius:5px;margin:0 1em;padding:.5em 1.5em}button:hover{box-shadow:0 0 4px 2px var(--shadow)}/*# sourceMappingURL=main.css.map */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #212128;
+    --background-dark: #18181c;
+    --foreground: white;
+    --accent: #c8e0f4;
+    --shadow: rgba(15, 15, 15, .5);
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background: #F4FFF8;
+    --background-dark: #E1EFFF;
+    --foreground: black;
+    --accent: #a9d2f3;
+    --shadow: rgba(15, 15, 15, .25);
+  }
+}
+
+.dark {
+  --background: #212128;
+  --background-dark: #18181c;
+  --foreground: white;
+  --accent: #c8e0f4;
+  --shadow: rgba(15, 15, 15, .5);
+}
+
+.light {
+  --background: #F4FFF8;
+  --background-dark: #E1EFFF;
+  --foreground: black;
+  --accent: #a9d2f3;
+  --shadow: rgba(15, 15, 15, .25);
+}
+
+@font-face {
+  font-family: "Material Icons";
+  font-style: normal;
+  font-weight: 400;
+  src: url(/fonts/MaterialIcons-Round.woff2) format("woff2");
+}
+
+.material-icons {
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -moz-font-feature-settings: "liga";
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Works on Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0) #323232;
+}
+
+/* Works on Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #323232;
+  border-radius: 20px;
+  border: 6px solid rgba(0, 0, 0, 0);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: sans-serif;
+  text-align: center;
+  margin: 0;
+}
+
+header {
+  padding: 0 2rem 1rem 2rem;
+}
+
+header button {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: var(--background);
+  border: none;
+  border-radius: 50%;
+  color: var(--foreground);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  margin: 0 5px;
+}
+
+header button:hover {
+  background-color: var(--foreground);
+  color: var(--background);
+}
+
+header div {
+  background-color: var(--background);
+  border-radius: 5px;
+  cursor: default;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  padding: .25rem;
+  position: absolute;
+  right: 1em;
+  top: 1em;
+}
+
+header div button:not(.active) {
+  display: none;
+}
+
+header div.open {
+  -webkit-box-shadow: 0 0 4px 2px var(--shadow);
+          box-shadow: 0 0 4px 2px var(--shadow);
+}
+
+header div.open button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: calc(90vh);
+}
+
+form, section {
+  background-color: var(--background-dark);
+  border-radius: 10px;
+  -webkit-box-shadow: 0 0 4px 2px var(--shadow);
+          box-shadow: 0 0 4px 2px var(--shadow);
+  margin: 1vh auto;
+  padding: 1rem;
+  width: 40vw;
+}
+
+ul {
+  font-size: 1.1rem;
+  overflow-y: auto;
+  height: calc(100% - 5rem);
+  padding: 0;
+}
+
+ul li {
+  border-bottom: 1px solid var(--background);
+  list-style-type: none;
+  padding: 0.5em 0.25em;
+  margin: 0 2em;
+}
+
+#results {
+  display: none;
+}
+
+footer {
+  background-color: var(--background-dark);
+  padding: 1rem;
+}
+
+@media screen and (max-width: 1200px) {
+  main {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: auto;
+  }
+  form, section {
+    height: auto;
+    width: 75vw;
+  }
+}
+
+@media screen and (min-width: 1201px) {
+  .slide {
+    -webkit-animation-duration: 1s;
+            animation-duration: 1s;
+    -webkit-animation-name: slide;
+            animation-name: slide;
+    position: relative;
+  }
+  @-webkit-keyframes slide {
+    from {
+      right: -25vw;
+    }
+    to {
+      right: 0;
+    }
+  }
+  @keyframes slide {
+    from {
+      right: -25vw;
+    }
+    to {
+      right: 0;
+    }
+  }
+}
+
+#results {
+  -webkit-animation-name: fade-in;
+          animation-name: fade-in;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+}
+
+@-webkit-keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+form label {
+  text-align: left;
+}
+
+form textarea {
+  resize: none;
+}
+
+.form-input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  font-size: 1.25em;
+  margin: 0 1em;
+  padding: 0.5em 1em;
+}
+
+.grow {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.grow textarea {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+input, textarea {
+  background-color: var(--background-dark);
+  border: 2px solid var(--foreground);
+  border-radius: 10px;
+  color: var(--foreground);
+  font-size: 1rem;
+  font-family: sans-serif;
+  margin-top: 0.5em;
+  padding: 0.5em 0.75em;
+}
+
+.buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 2em 1em 2em;
+}
+
+button {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: var(--accent);
+  color: black;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  margin: 0 1em;
+  padding: .5em 1.5em;
+}
+
+button:hover {
+  -webkit-box-shadow: 0 0 4px 2px var(--shadow);
+          box-shadow: 0 0 4px 2px var(--shadow);
+}
+/*# sourceMappingURL=main.css.map */
