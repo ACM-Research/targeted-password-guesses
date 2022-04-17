@@ -9,15 +9,9 @@ app = Flask(__name__)
 def index():
     return render_template("index.html", theme=request.cookies.get("theme") or "system")
 
-
-@app.route("/guess/fake", methods=["POST"])
-def fake_guess():
-    return json.dumps(passwords.fake_guess())
-
 @app.route("/guess", methods=["POST"])
 def guess():
-    return json.dumps(passwords.guess(request.form.get("name"), request.form.get("info")))
-
+    return json.dumps(passwords.guess(request.form))
 
 @app.route("/styles/<path:path>")
 def send_css(path):

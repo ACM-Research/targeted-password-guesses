@@ -11,20 +11,28 @@ $("#guess").on("click", e => {
 
     // Get password guesses
     let data = new FormData();
-    data.append("name", $("#name").val());
-    data.append("info", $("#info").val());
-    fetch("/guess", {
-	    method: "POST",
-	    body: data,
-    	})
-        .then(response => response.json())
-        .then(guesses => {
-            let $results_ul = $("#results ul").empty();
-            for (let i = 0; i < guesses.length; i++) {
-                $results_ul.append(`<li>${guesses[i]}</li>`);
-            }
-        })
-        .catch(console.error);
+    data.append("realname", $("#realname").val());
+    data.append("username", $("#username").val());
+    data.append("dob", $("#dob").val());
+    data.append("gender", $("#gender").val());
+    data.append("country", $("#country").val());
+    data.append("twitterid", $("#twitterid").val());
+    data.append("about", $("#about").val());
+    data.append("status", $("#status").val());
+
+    const $results_ul = $("#results ul").empty();
+    for (let i = 0; i < 5; i++) {
+        fetch("/guess", {
+            method: "POST",
+            body: data,
+            })
+            .then(response => response.json())
+            .then(guess => {
+                console.log(guess);
+                $results_ul.append(`<li>${guess}</li>`);
+            })
+            .catch(console.error);
+    }
 
     // Run animations if the results element isn't visible yet
     const $results = $("#results");

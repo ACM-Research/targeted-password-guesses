@@ -1,134 +1,63 @@
-import random
-import torch
-import json
-import re
-from transformers import GPT2LMHeadModel, GPT2Tokenizer
+import os
+import openai
+from dotenv import load_dotenv
 
-fake_passwords = [
-    "123456",
-    "password",
-    "12345",
-    "123456789",
-    "password1",
-    "abc123",
-    "12345678",
-    "qwerty",
-    "111111",
-    "1234567",
-    "1234",
-    "iloveyou",
-    "sunshine",
-    "monkey",
-    "1234567890",
-    "123123",
-    "princess",
-    "baseball",
-    "dragon",
-    "football",
-    "shadow",
-    "michael",
-    "soccer",
-    "unknown",
-    "maggie",
-    "000000",
-    "ashley",
-    "myspace1",
-    "purple",
-    "fuckyou",
-    "charlie",
-    "jordan",
-    "hunter",
-    "superman",
-    "tigger",
-    "michelle",
-    "buster",
-    "pepper",
-    "justin",
-    "andrew",
-    "harley",
-    "matthew",
-    "bailey",
-    "jennifer",
-    "samantha",
-    "ginger",
-    "anthony",
-    "qwerty123",
-    "qwerty1",
-    "peanut",
-    "summer",
-    "hannah",
-    "654321",
-    "michael1",
-    "cookie",
-    "linkedin",
-    "madison",
-    "joshua",
-    "taylor",
-    "whatever",
-    "mustang",
-    "jessica",
-    "qwertyuiop",
-    "amanda",
-    "jasmine",
-    "123456a",
-    "123abc",
-    "brandon",
-    "letmein",
-    "freedom",
-    "basketball",
-    "xxx",
-    "babygirl",
-    "thomas",
-    "william",
-    "hello",
-    "austin",
-    "qwe123",
-    "123",
-    "jackson",
-    "fuckyou1",
-    "love",
-    "family",
-    "yellow",
-    "trustno1",
-    "robert",
-    "jesus1",
-    "chicken",
-    "jordan23",
-    "mickey",
-    "diamond",
-    "scooter",
-    "booboo",
-    "welcome",
-    "george",
-    "smokey",
-    "cheese",
-    "computer",
-    "morgan",
-    "nicholas",
-]
+load_dotenv()
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
-tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
-model = GPT2LMHeadModel.from_pretrained('gpt2')
-password_list_length = 5
+models = {
+    "100": {
+        "model": "ada:ft-acm-research-password-team:initial-model-test-2022-04-15-22-39-03",
+        "stop": "\n\n###\n\n"
+    },
+    "1k": {
+        "model": "ada:ft-acm-research-password-team:1k-examples-2022-04-16-17-55-28",
+        "stop": "\n"
+    },
+    "10k": {
+        "model": "ada:ft-acm-research-password-team:10k-examples-2022-04-16-18-15-21",
+        "stop": "\n"
+    }
+}
 
-def fake_guess():
-    return random.sample(fake_passwords, 30)
+prompt_stop = '\nPassword: \n###\n'
 
-def guess(name, info):
-    password_list = []
-    for i in range(password_list_length):
-        sequence = (f"Name: {name}\nInfo: {info}\nPassword:")
-        inputs = tokenizer.encode(sequence, return_tensors='pt')
-        outputs = model.generate(
-            inputs, max_length=len(sequence)+20, do_sample=True, temperature=0.5
-        )
-        output = tokenizer.decode(outputs[0], skip_special_tokens=True)
-        match = re.search(r"Password:(.*)", output)
-        if match:
-            password = match.group(1)
-            print(password)
-            password_list.append(password)
-        else:
-            print(f"### Could not find {i}-th password result for output:\n{output}\n\n")
+def guess(form):
+    prompt = ""
+    for key, value in form.items():
+        if value != '':
+            if key == 'realname':
+                prompt += f"Real name is {value}\n"
+            if key == 'dob':
+                prompt += f"Date of Birth is {value}\n"
+            if key == 'gender':
+                if value == 'M':
+                    prompt += f"Gender is Male\n"
+                if value == 'F':
+                    prompt += f"Gender is Female\n"
+            if key == 'country':
+                prompt += f"Country is {value}\n"
+            if key == 'twitterid':
+                prompt += f"Twitter ID is {value}\n"
+            if key == 'about':
+                prompt += f"User information: {value}\n"
+            if key == 'status':
+                prompt += f"User status: {value}\n"
+    
+    prompt += prompt_stop
 
-    return password_list
+    print(prompt)
+    completion = get_GPT3_completion(prompt)
+    print(completion)
+    return completion
+
+
+def get_GPT3_completion(prompt):
+    response = openai.Completion.create(
+        model=models['10k']['model'],
+        prompt=prompt,
+        max_tokens=32,
+        temperature=0.8,
+        stop=models['10k']['stop']
+    )
+    return response['choices'][0]['text']
