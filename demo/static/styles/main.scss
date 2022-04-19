@@ -8,8 +8,8 @@
         --accent: #c8e0f4;
         --shadow: rgba(15, 15, 15, .5);
     } @else {
-        --background: #F4FFF8;
-        --background-dark: #E1EFFF;
+        --background: #F8FFFA;
+        --background-dark: #EFF6FF;
         --foreground: black;
         --accent: #a9d2f3;
         --shadow: rgba(15, 15, 15, .25);
@@ -152,7 +152,7 @@ header {
 
 main {
     display: flex;
-    height: calc(90vh);
+    min-height: calc(90vh);
 }
 
 form, section {
@@ -280,7 +280,7 @@ input, textarea {
 .buttons {
     display: flex;
     justify-content: space-between;
-    padding: 0 2em 1em 2em;
+    padding: 1em 1.75em;
 }
 
 button {
@@ -296,4 +296,19 @@ button {
 
 button:hover {
     box-shadow: 0 0 4px 2px var(--shadow);
+}
+
+@media screen and (max-width: 450px) {
+    form {
+	width: 80vw;
+    }
+
+    .form-input {
+	margin: 0 .5rem;
+	padding: 0.5rem 0.25rem;
+    }
+
+    .buttons {
+	padding: 1em .75em;
+    }
 }
