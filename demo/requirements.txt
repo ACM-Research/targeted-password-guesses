@@ -1,0 +1,3 @@
+flask
+openai
+python-dotenv
