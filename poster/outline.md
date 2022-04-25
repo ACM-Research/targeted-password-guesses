@@ -8,7 +8,19 @@ We refined GPT-3 models on user data from a security breach of the online platfo
 
 ## methods
 
+- why we picked Wattpad leak
+	- list of leaks on haveibeenpwned
+- Hashmob cracked passwords
+- SQLite to align the data
+- refining Ada on 100, 1000, and 10000 tokens
+- refining Curie 
+- testing with models and most popular passwords
+- similarity testing
+
 ## results
+
+- similarity curves
+- correct guess percentage curves
 
 ## applications
 
@@ -17,5 +29,9 @@ We refined GPT-3 models on user data from a security breach of the online platfo
 - analyze security of individual passwords, say when registering for an account
 
 ## moving forward
+
+- [depending on what the data looks like] we could scale up the model to train on Curie or Davinci
+	- or to save on costs for more power, refactor the project to use the open-source alternative GPT-J
+- more analysis 
 
 ## references
