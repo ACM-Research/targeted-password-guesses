@@ -32,10 +32,10 @@ Using GPT-3's fine-tuning API, we showed a pre-existing text transformer model 1
 
 ![](./poster/similarity_graph.svg)
 
-![](./poster/comparison_graph.svg)
-        
 Using targeted guesses greatly increases the likelihood of not only guessing a target's password, but also guessing passwords that are similar to it. We generated 20 guesses each for 1000 user examples to compare our approach with a brute-force, non-targeted method. The **Levenshtein distance algorithm** shows how similar each password guess is to the real user password. In the first figure above, it may seem that the brute-force method produces more similar passwords on average, but our model has a higher density for Levenshtein ratios of 0.7 and above (the more significant range).
-        
+
+![](./poster/comparison_graph.svg)
+
 Not only are the targeted guesses more similar to the target's password, but the model is also able to guess more passwords than brute-forcing, and in significantly fewer tries. The second figure shows that our model is often able to guess the target's password in **fewer than 10 tries**, whereas the brute-forcing method performs less consistently.
         
 ## Demo
