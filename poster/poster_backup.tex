@@ -78,15 +78,17 @@ ACM Research Symposium 2022 \hfill
 
 Imagine trying to hack into your friend's social media account by guessing what password they used to secure it. You do some research to come up with likely guesses – say, you discover they have a dog named "Dixie" and attempt to log in using the password {\tt DixieIsTheBest1}. The problem is that this only works if you have the intuition on how humans choose passwords, and the skills to conduct open-source intelligence gathering.
 
-We refined machine learning models on user data from Wattpad's 2020 security breach to generate targeted password guesses \emph{automatically}. This approach combines the vast knowledge of a 350 million parameter–model with the personal information of 10 thousand users, including usernames, phone numbers, and personal descriptions. Despite the small training set size, our model already produces more accurate results than non-personalized guesses.
+We refined machine learning models on user data from Wattpad's 2020 security breach to generate targeted password guesses \textbf{automatically}. This approach combines the vast knowledge of a 350 million parameter–model with the personal information of 10 thousand users, including usernames, phone numbers, and personal descriptions. Despite the small training set size, our model already produces more accurate results than non-personalized guesses.
 
   \end{block}
 
   \begin{block}{Methods}
 
-    In June 2020, Wattpad (an online platform for reading and writing stories) was hacked, and the personal information and passwords of 270 million users were revealed. This data breach is unique in that it connects unstructured text data (user descriptions and statuses) to corresponding passwords. Other data breaches (such as from the dating websites Mate1.com and Ashley Madison) share this property, but we had trouble ethically procuring this data. This data is particularly well-suited for refining a large text transformer like GPT-3, and it's what sets our research apart from a previous study which created a framework for generating targeted guesses using \emph{structured} pieces of user information. The original dataset's passwords were hashed with the bcrypt algorithm, so we used data from the crowdsourced password recovery website Hashmob to match plain text passwords with corresponding user data.
+    In June 2020, Wattpad (an online platform for reading and writing stories) was hacked, and the personal information and passwords of 270 million users was revealed. This data breach is unique in that it connects unstructured text data (user descriptions and statuses) to corresponding passwords. Other data breaches (such as from the dating websites Mate1.com and Ashley Madison) share this property, but we had trouble ethically accessing them. This kind of data is particularly well-suited for refining a large text transformer like GPT-3, and it's what sets our research apart from a previous study [1] which created a framework for generating targeted guesses using \textbf{structured} pieces of user information.
     
+    The original dataset's passwords were hashed with the bcrypt algorithm, so we used data from the crowdsourced password recovery website Hashmob to match plain text passwords with corresponding user information.
     
+    \vspace{12mm}
 
   \begin{alertblock}{GPT-3 and Language Modeling}
 
@@ -103,25 +105,32 @@ We refined machine learning models on user data from Wattpad's 2020 security bre
 \separatorcolumn
 
 \begin{column}{\colwidth}
-      
+    
     Using GPT-3's fine-tuning API, we showed a pre-existing text transformer model 10 thousand examples for how to correlate a user's personal information with their password.
     
-    \includegraphics[width=55cm]{diagram.pdf}
+    \vspace{12mm}
     
+    \includegraphics[width=\linewidth]{diagram.pdf}
+
+    \vspace{12mm}
 
   \begin{block}{Results}
-    %  \begin{exampleblock}{Password Guesses vs. Actual Passwords}
-    %    \centering
-    \begin{center}
-       \includegraphics[width=0.49\linewidth]{img/similarity_chart.png}
-       \hfill
-       \includegraphics[width=0.49\linewidth]{img/comparison_graph.png}
-    \end{center} 
-      %  \end{exampleblock}
+    
+    \vspace{12mm}
+    
+    \begin{columns}
+    \begin{column}{0.5\colwidth}
+       \includegraphics[width=\linewidth]{img/similarity_graph.pdf}
+    \end{column}
+    
+    \begin{column}{0.5\colwidth}
+       \includegraphics[width=\linewidth]{comparison_graph.pdf}
+    \end{column}
+    \end{columns}
         
-        Using targeted guesses greatly increases the likelihood of not only guessing a target's password, but also guessing passwords that are similar to it. We used the \textbf{Livenshtein distance algorithm} to compute how similar the guessed passwords  are to the target's password. In the figure above, it may seem that the Top 100 Password list performs better on average, but our model has a higher density for Livenshtein ratios of 0.7 and above.
+        Using targeted guesses greatly increases the likelihood of not only guessing a target's password, but also guessing passwords that are similar to it. We generated 20 guesses each for 1000 user examples to compare our approach with a brute-force, non-targeted method. The \textbf{Levenshtein distance algorithm} shows how similar each password guess is to the real user password. In the first figure above, it may seem that the brute-force method produces more similar passwords on average, but our model has a higher density for Levenshtein ratios of 0.7 and above (the more significant range).
         
-        Not only are the GPT-3 model's password guesses more similar to the target's password, but the model is also able to guess more passwords than brute-forcing, and in \textit{significantly less tries}. The second figure shows that our GPT-3 model is often able to guess the target's password \textbf{in less than 10 tries}, whereas the brute-forcing method performs much less consistently.
+        Not only are the targeted guesses more similar to the target's password, but the model is also able to guess more passwords than brute-forcing, and in significantly fewer tries. The second figure shows that our model is often able to guess the target's password in \textbf{fewer than 10 tries}, whereas the brute-forcing method performs less consistently.
         
   \end{block}
 \end{column}
@@ -132,7 +141,9 @@ We refined machine learning models on user data from Wattpad's 2020 security bre
 
     \begin{block}{Demo}
     
-    We created an interactive web demo, so you can see how our model would generate password guesses based on any  information that you input. The backend is built with Flask and directly calls the OpenAI Completion API with our fine-tuned model to generate password guesses based on the inputted personal information.
+    We created an interactive web demo that shows you what our model thinks your password could be. The back end is built with Flask and directly calls the OpenAI Completion API with our fine-tuned model to generate password guesses based on the inputted personal information. Try it out at {\tt guessmypassword.herokuapp.com}.
+    
+    \vspace{12mm}
     
     \begin{columns}
     \begin{column}{0.8\colwidth}
@@ -152,7 +163,7 @@ We refined machine learning models on user data from Wattpad's 2020 security bre
 
   \begin{block}{Conclusion}
 
-    Our study reveals both the danger and the utility of accessible advanced machine learning models. With our approach, an attacker could automatically attempt to hack into users' accounts more efficiently than traditional methods, or crack more password hashes from a data leak once brute-force or dictionary attacks reach their effective limit. However, anyone can use this model to see if their passwords are vulnerable, and businesses can run this model on their employees' data to ensure that their company credentials are secure from password guessing attacks. Ultimately, we believe that our use of the GPT-3 model and its effectiveness in generating targeted password guesses can shed light on both existing password practice and future password research.
+    Our study reveals both the utility and danger of accessible advanced machine learning models. With our approach, an attacker could automatically attempt to hack into users' accounts more efficiently than with traditional methods, or crack more password hashes from a data leak once brute-force or dictionary attacks reach their effective limit. However, anyone can use this model to see if their passwords are vulnerable, and businesses could run this model on their employees' data to ensure that their company credentials are secure from password guessing attacks.
 
   \end{block}
 
@@ -174,4 +185,3 @@ We refined machine learning models on user data from Wattpad's 2020 security bre
 \end{frame}
 
 \end{document}
-
