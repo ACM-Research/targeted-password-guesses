@@ -2,9 +2,9 @@
 
 ## introduction
 
- Imagine trying to hack into your friend's social media account by guessing what password they used to secure it. You do some research to come up with likely guesses – say, you discover they have a dog named "Dixie"and attempt to log in using the password {\tt DixieIsTheBest1}. The problem is that this only works if you have the intuition on how humans choose passwords, and the skills to conduct open-source intelligence gathering.
+Imagine trying to hack into your friend's social media account by guessing what password they used to secure it. You do some research to come up with likely guesses – say, you discover they have a dog named "Dixie" and attempt to log in using the password {\tt DixieIsTheBest1}. The problem is that this only works if you have the intuition on how humans choose passwords, and the skills to conduct open-source intelligence gathering.
 
-We refined GPT-3 models on user data from a security breach of the online platform Wattpad in order to generate targeted password guesses \emph{automatically}. This approach combines the vast knowledge of a 350 million parameter–model with the personal information of 1 thousand users, including usernames, phone numbers, and personal descriptions and automatically generates personalized password guesses
+We refined GPT-3 models on user data from Wattpad's 2020 security breach to generate targeted password guesses \emph{automatically}. This approach combines the vast knowledge of a 350 million parameter–model with the personal information of 1 thousand users, including usernames, phone numbers, and personal descriptions.
 
 ## methods
 
