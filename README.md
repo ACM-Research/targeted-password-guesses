@@ -1,6 +1,6 @@
 # generating targeted password guesses using machine learning
 
-![](./poster/automating_targeted_password_guessing.pdf)
+![](./poster/poster.png)
 
 ## about
 
