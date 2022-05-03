@@ -1,6 +1,8 @@
 # Automating Targeted Password Guessing
 
-*Aravindan Kasiraman, Bradley Johnson, Pranav Nair, Roman Hauksson-Neill, Sisira Aarukapalli*
+*Faculty Advisor: Dr. Wei Yang*  •  *Team Lead: Roman Hauksson-Neill*
+
+*Aravindan Kasiraman  •  Bradley Johnson  •  Pranav Nair  •  Sisira Aarukapalli*
 
 *[ACM Research](https://acmutd.co/research) at the University of Texas at Dallas*
 
