@@ -12,6 +12,10 @@ Imagine trying to hack into your friend's social media account by guessing what 
 
 We refined machine learning models on user data from Wattpad's 2020 security breach to generate targeted password guesses **automatically**. This approach combines the vast knowledge of a 350 million parameter–model with the personal information of 10 thousand users, including usernames, phone numbers, and personal descriptions. Despite the small training set size, our model already produces more accurate results than non-personalized guesses.
 
+## About
+
+[ACM Research](https://acmutd.co/research) is a division of the Association of Computing Machinery at the University of Texas at Dallas. Over 10 weeks, six 4-person teams work with a team lead and a faculty advisor on a research project about anything from [phishing email detection](https://github.com/ACM-Research/thephishingproject) to [virtual readlity video compression](https://github.com/ACM-Research/vr-user-behavior-clustering). [Applications](https://acmutd.co/apply/) to participate open each semester.
+
 ## Methods
 
 In June 2020, Wattpad (an online platform for reading and writing stories) was hacked, and the personal information and passwords of 270 million users was revealed. This data breach is unique in that it connects unstructured text data (user descriptions and statuses) to corresponding passwords. Other data breaches (such as from the dating websites Mate1.com and Ashley Madison) share this property, but we had trouble ethically accessing them. This kind of data is particularly well-suited for refining a large text transformer like GPT-3, and it's what sets our research apart from a previous study[^1] which created a framework for generating targeted guesses using **structured** pieces of user information.
