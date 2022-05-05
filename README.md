@@ -14,7 +14,7 @@ We refined machine learning models on user data from Wattpad's 2020 security bre
 
 ## About
 
-[ACM Research](https://acmutd.co/research) is a division of the Association of Computing Machinery at the University of Texas at Dallas. Over 10 weeks, six 4-person teams work with a team lead and a faculty advisor on a research project about anything from [phishing email detection](https://github.com/ACM-Research/thephishingproject) to [virtual readlity video compression](https://github.com/ACM-Research/vr-user-behavior-clustering). [Applications](https://acmutd.co/apply/) to participate open each semester.
+[ACM Research](https://acmutd.co/research) is a division of the Association of Computing Machinery at the University of Texas at Dallas. Over 10 weeks, six 4-person teams work with a team lead and a faculty advisor on a research project about anything from [phishing email detection](https://github.com/ACM-Research/thephishingproject) to [virtual reality video compression](https://github.com/ACM-Research/vr-user-behavior-clustering). [Applications](https://acmutd.co/apply/) to participate open each semester.
 
 ## Methods
 
