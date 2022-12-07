@@ -1,7 +1,7 @@
 # Automating Targeted Password Guessing
 
-*Faculty Advisor: [Dr. Wei Yang](http://youngwei.com)*  •  *Team Lead: [Roman Hauksson-Neill](https://roman.hn)*\
-*[Aravindan Kasiraman](cubetastic33.github.io)  •  [Bradley Johnson](https://www.linkedin.com/in/bradwj)  •  [Pranav Nair](https://github.com/pranavn21)  •  [Sisira Aarukapalli](https://github.com/ccgsisig)*\
+*Faculty Advisor: [Dr. Wei Yang](http://youngwei.com)*  •  *Team Lead: [Roman Hauksson-Neill](https://github.com/romanhn)*\
+*[Aravindan Kasiraman](https://cubetastic33.github.io)  •  [Bradley Johnson](https://www.linkedin.com/in/bradwj)  •  [Pranav Nair](https://github.com/pranavn21)  •  [Sisira Aarukapalli](https://github.com/ccgsisig)*\
 *[ACM Research](https://acmutd.co/research) at the University of Texas at Dallas*
 
 ![](./poster/poster.png)
