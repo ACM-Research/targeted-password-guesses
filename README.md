@@ -14,7 +14,7 @@ We refined machine learning models on user data from Wattpad's 2020 security bre
 
 ## About
 
-[ACM Research](https://acmutd.co/research) is a division of the Association of Computing Machinery at the University of Texas at Dallas. Over 10 weeks, six 4-person teams work with a team lead and a faculty advisor on a research project about anything from [phishing email detection](https://github.com/ACM-Research/thephishingproject) to [virtual reality video compression](https://github.com/ACM-Research/vr-user-behavior-clustering). [Applications](https://acmutd.co/apply/) to participate open each semester.
+[ACM Research](https://acmutd.co/research) is a division of the Association of Computing Machinery at the University of Texas at Dallas. Over 10 weeks, six 4-person teams work with a team lead and a faculty advisor on a research project about anything from [phishing email detection](https://github.com/ACM-Research/thephishingproject) to [virtual reality video compression](https://github.com/ACM-Research/vr-user-behavior-clustering). [Applications]([https://acmutd.co/apply/](https://acm-utd.us.auth0.com/u/login?state=hKFo2SBqaVo3aDFHeXlRaUVzd1FKVHh2TGtMUDlyZER0dDExM6Fur3VuaXZlcnNhbC1sb2dpbqN0aWTZIHdNNHUybEZyckF6Y2hKaFpnOGhNVUhmeWJWeklPTUlCo2NpZNkgRnNxalhPRXZURHZUM3d5M09qWkdtYnZLMTVyMmZsTVM)) to participate open each semester.
 
 ## Methods
 
@@ -55,7 +55,5 @@ Our study reveals both the utility and danger of accessible advanced machine lea
 ## References
 
 [^1]: Wang, D., Zhang, Z., Wang, P., Yan, J., Huang, X. (2016). Targeted Online Password Guessing: An Underestimated Threat.
-    
 [^2]: Hitaj, B., Gasti, P., Ateniese, G.,  Perez-Cruz, F. (2019). PassGAN: A Deep Learning Approach for Password Guessing.
-    
 [^3]: Melicher, W., Ur, B., Segreti, S., Komanduri, S., Bauer, L., Christin, N.,  Cranor, L. (2016). Fast, Lean, and Accurate: Modeling Password Guessability Using Neural Networks.
